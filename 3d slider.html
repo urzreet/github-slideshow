@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap" rel="stylesheet">
+
+    <title>3d cube slider</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,100,200,300,400,500,600,700,800,900,wght@1,200&display=swap');
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            font-family: 'poppin', sans-serif;
+        }
+        
+        body {
+            background: #000;
+            font-family: 'poppin', sans-serif;
+            font-size: 14px;
+            color: #ff0057, #e64a19;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .swiper-container {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -190px;
+        }
+        
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .box {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 50px;
+            font-size: 2em;
+        }
+        
+        .box:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box:before,
+        .box:after {
+            background: linear-gradient(300deg, #ff0057, #000, #e64a19);
+        }
+        
+        .content {
+            box-sizing: border-box;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .content h1,
+        p1,
+        p2 {
+            background: linear-gradient(50deg, #ff0057, #e64a19);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        
+        .box1 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 50px;
+            font-size: 2em;
+        }
+        
+        .box1:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box1:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box1:before,
+        .box1:after {
+            background: linear-gradient(300deg, #89ff00, #000, #00bcd4);
+        }
+        
+        .content1 {
+            box-sizing: border-box;
+            color: #fff;
+        }
+        
+        .content1 h1,
+        p3,
+        p4 {
+            background: linear-gradient(50deg, #89ff00, #00bcd4);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        
+        .box2 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 40px;
+            font-size: 1.60em;
+        }
+        
+        .box2:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box2:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box2:before,
+        .box2:after {
+            background: linear-gradient(300deg, #08adca, #060c21, #c412b5);
+        }
+        
+        .content2 {
+            box-sizing: border-box;
+            color: #fff;
+        }
+        
+        .content2 h1,
+        p5,
+        p6,
+        p7 {
+            background: linear-gradient(50deg, #08adca, #c412b5);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        
+        .box3 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 50px;
+            font-size: 2em;
+        }
+        
+        .box3:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box3:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1;
+            filter: blur(40px);
+        }
+        
+        .box3:before,
+        .box3:after {
+            background: linear-gradient(300deg, #eff303, #060c21, #e70303);
+        }
+        
+        .content3 {
+            box-sizing: border-box;
+            color: #fff;
+        }
+        
+        .content3 h1,
+        p8,
+        p9 {
+            background: linear-gradient(50deg, #eff303, #e70303);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        
+        .box4 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 50px;
+            font-size: 2em;
+        }
+        
+        .box4:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box4:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box4:before,
+        .box4:after {
+            background: linear-gradient(300deg, #e91e63, #060c21, #5d02ff);
+        }
+        
+        .content4 {
+            box-sizing: border-box;
+            color: #fff;
+        }
+        
+        .content4 h1,
+        p10,
+        p11 {
+            background: linear-gradient(50deg, #e91e63, #5d02ff);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        
+        .box5 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-weight: 50px;
+            font-size: 2em;
+        }
+        
+        .box5:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -1000;
+        }
+        
+        .box5:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            transform: skew(1deg, 1deg);
+            background: #fff;
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box5:before,
+        .box5:after {
+            background: linear-gradient(300deg, #03e989, #060c21, #1316e0);
+        }
+        
+        .content5 {
+            box-sizing: border-box;
+            color: #fff;
+        }
+        
+        .content5 h1,
+        p12,
+        p13 {
+            background: linear-gradient(50deg, #03e989, #1316e0);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box">
+                    <div class="content">
+                        <h1><b><i>&nbsp;&nbsp;Monday</i></b></h1>
+                        <p1><sup> Any</sup>&nbsp;2 Small Pizza </p1><br>
+                        <br>
+                        <p2><sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only</sup>&nbsp;Rs.300/-</p2>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box1">
+                    <div class="content1">
+                        <h1><b><i>&nbsp;&nbsp;Tuesday</i></b></h1>
+                        <p3> &nbsp;&nbsp;&nbsp;&nbsp;Buy Any Medium &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIZZA </p3><br> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <br>
+                        <p4> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<sup> Just</sup> Rs.280/-</p4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box2">
+                    <div class="content2">
+                        <h1><b><i>Wednesday & &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Friday</i></b></h1>
+                        <p5>&nbsp;&nbsp; &nbsp;&nbsp;BUY 1 GET 1 FREE </p5>
+                        <p6> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;MEDIUM & LARGE &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; PIZZA
+                        </p6>
+                        <br> <br>
+                        <p7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <sup>Just</sup> Rs.350/-</p7>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box3">
+                    <div class="content3">
+                        <h1><b><i> &nbsp;&nbsp;Thursday</i></b></h1>
+                        <p8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buy Any </p8>
+                        <p9>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARGE PIZZA &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                            <br><sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Just</sup> Rs.380/-</p9>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box4">
+                    <div class="content4">
+                        <h1><b><i> &nbsp;Saturday</i></b></h1>
+                        <p10> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>Any</sup>&nbsp;2 <sub>MEDIUM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PIZZA </sub> </p10><br>
+                        <br>
+                        <p11> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<sup>Only</sup>&nbsp;Rs.499/-</p11>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box5">
+                    <div class="content5">
+                        <h1><b><i>&nbsp;&nbsp;Sunday</i></b></h1>
+                        <p12>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Buy Any Large &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PIZZA </p12>
+                        <br>
+                        <br>
+                        <p13> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get</sup>&nbsp;100/-off</p13>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+    </div>
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="path/to/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spacebetween: 20,
+            effect: 'cube',
+            grabCursor: true,
+            cubeEffect: {
+                shadow: true,
+                slideShadows: true,
+                shadowoffset: 20,
+                shadowScale: 0.94,
+
+            },
+
+            pagination: {
+
+                el: '.swiper-pagination',
+
+            },
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
